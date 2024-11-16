@@ -1,0 +1,90 @@
+*, html {
+  padding: 0;
+  margin: 0;
+}
+
+
+
+:root {
+  font-family: Inter, sans-serif;
+  font-feature-settings: 'liga' 1, 'calt' 1; /* fix for Chrome */
+
+  --primary: #56DF96;
+  --dark: #404140;
+  --light: #E6E6E6;
+  --secondary: #E2C044;
+
+  --font-primary: Inter, sans-serif;
+}
+
+
+body {
+  width: 100vw;
+  min-height: 100vh;
+  background-color: var(--dark);
+}
+
+nav {
+  width: 100%;
+  background-color: color-mix(in srgb, var(--dark), var(--light) 5%);
+  height: 7rem;
+  display: flex;
+  align-items: center;
+}
+
+.nav-spacer {
+  flex: .5;
+  height: 100%;  
+}
+
+#nav-left, #nav-right {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  box-sizing: border-box; padding: .5rem 3rem;
+}
+
+
+#nav-left {
+  justify-content: flex-start;
+}
+
+#nav-right {
+  justify-content: flex-end;
+}
+
+#nav-button-container {
+  display: flex;
+  gap: 3rem;
+  align-items: center; justify-content: flex-end;
+}
+
+.nav-button {
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--light);
+  position: relative;
+  box-sizing: border-box; padding: .75rem 1rem;
+  transition: .25s ease;
+}
+
+.nav-button:hover {
+  color: var(--secondary);
+}
+
+.nav-button::after {
+  background-color: var(--secondary);
+  height: .15rem;
+  width: 0rem; 
+  right: 0; bottom: 0;
+  content: '';
+  position: absolute;
+  transition: .25s ease;
+  
+}
+
+.nav-button:hover::after {
+  width: 100%; left: 0;
+}
