@@ -3,7 +3,7 @@ function nextCard() {
     document.querySelector(".card:nth-child(1)").style.opacity = ".8";
     setTimeout(() => {
       document.querySelector(".card:nth-child(1)").remove()
-    }, 500);  
+    }, 500);
 }
 
 var randWT = (Math.floor(Math.random() * 3) + 1);
@@ -20,21 +20,25 @@ var creditCardBill = 0;
 // First array in each element holds what change takes place, second is value of that change
 const cards = [
     [["nothing", "nothing"], [0, 0], "Context Here for W2"],
-    [["balance", "balance"], [500, -500], ""], 
-    [["balance", "nothing"], [-2800, 0], ""],
     [["balance", "nothing"], [-690, 0], ""],
+    [["balance", "nothing"], [-2800, 0], ""],
+    [["balance", "balance"], [0, 500], ""], 
     [["balance", "credit"], [-75, 75], ""],
-    [["balance", "nothing"], [-68, 0], ""]
+    [["balance", "nothing"], [-68, 0], ""],
 ];
 
 function userChoice(cardNum, choice) {
+    // When passing cardNum, note that the first card will have an index of 1, but will be stored at index 0 in cards
     let card = cards[cardNum - 1];
 
     if (card[0][choice] == "balance") {
         balance += card[1][choice];
+        console.log(balance);
     } else if (card[0][choice] == "credit") {
         creditCardBill += card[1][choice];
     }
+
+    nextCard();
 }
 
 
