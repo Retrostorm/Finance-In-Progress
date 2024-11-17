@@ -39,6 +39,7 @@ body {
   border-radius: .5rem;
   position: absolute;
   transition: .5s ease;
+  overflow: hidden;
 }
 
 
