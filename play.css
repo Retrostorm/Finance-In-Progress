@@ -62,7 +62,7 @@ main {
 }
 
 section {
-  z-index: 999;
+  z-index: 99;
   width: 100%; height: 100%;
   background-color: var(--dark);
   display: flex; flex-direction: column;
@@ -213,10 +213,39 @@ section img {
 #rolling-counter div {
   display: flex; flex-direction: column;
   height: 4rem; overflow: hidden; font-size: 4rem;
+  color: var(--one);
+  transition: .6s ease;
 }
 
 #rolling-counter div span {
   height: 4rem;
   font-size: 4rem;
   flex-shrink: 0;
+  transition: .6s ease;
+}
+
+#blocker {
+  position: absolute;
+  z-index: 100;
+  background-color: black; color: white;
+  width: 100vw; height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; flex-direction: column; gap: 2rem;
+  display: none;
+}
+
+#confetti {
+  background-color: rgb(107, 199, 107);
+  padding: 2rem;
+  border: none; border-radius: 10rem;
+  font-size: 2rem; font-family: var(--font-primary);
+  cursor: pointer;
+}
+
+@media screen and (max-width: 900px) {
+  #blocker {
+    display: flex;
+  } body {
+    overflow: hidden;
+  }
 }

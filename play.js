@@ -3,6 +3,36 @@ function nextCard() {
     document.querySelector(".card:nth-child(1)").style.opacity = ".8";
     setTimeout(() => {
       document.querySelector(".card:nth-child(1)").remove();
+      if (!(document.querySelector(".card"))) {
+          var total = balance - creditCardBill;
+          var splitTotal = String(total).split('');
+          var periodIndex = splitTotal.indexOf(".");
+          var splitLeft = splitTotal.slice(0, periodIndex);
+          var splitRight;
+          if(periodIndex != -1) {
+              splitRight = splitTotal.slice(periodIndex + 1);
+              splitRight = String(splitRight).split('');
+          } else {
+              splitRight = [0, 0];
+          }
+  
+          // Javascript sucks
+          splitTotal = [...splitLeft, ...splitRight];
+          if (splitTotal[splitTotal.length - 2] == ",") {
+              let last = splitTotal.pop();
+              splitTotal.pop();
+              splitTotal[splitTotal.length] = last;
+          }
+  
+          for (let i = 0; i < 9-(splitTotal.length)+1; i++) {
+              splitTotal.unshift("0")
+          }
+  
+          for (let i = 0; i < 100; i++) {
+                document.querySelectorAll("#rolling-counter div span")[i].style.transform = `translateY(${-4*Number(splitTotal[(Math.floor(i/10))])}rem)`
+          }
+  
+      }
     }, 500);
 }
 
@@ -44,30 +74,6 @@ function userChoice(cardNum, choice) {
     nextCard();
 }
 
-var total = balance - creditCardBill;
-var splitTotal = String(total).split('');
-var periodIndex = splitTotal.indexOf(".");
-var splitLeft = splitTotal.slice(0, periodIndex);
-var splitRight;
-if(periodIndex != -1) {
-    splitRight = splitTotal.slice(periodIndex + 1);
-    splitRight = String(splitRight).split('');
-} else {
-    splitRight = [0, 0];
-}
-
-// Javascript sucks
-splitTotal = [...splitLeft, ...splitRight];
-if (splitTotal[splitTotal.length - 2] == ",") {
-    let last = splitTotal.pop();
-    splitTotal.pop();
-    splitTotal[splitTotal.length] = last;
-}
-
-// for (let i = 0; i < 9-(splitTotal.length); i++) {
-//     console.log("0")
-// }
-console.log(splitTotal);
 
 function openFullscreen(elem) {
     if (document.fullscreenElement) {
