@@ -43,7 +43,7 @@ for line in f.readlines():
     
     if n ==15:
         tempstring2 = '{prompt: \'' + prompt + '\', choice : [\'' + questiona + '\',\'' + questionb + '\',\'' + questionc + '\'], feedback : [\'' + anwsera + '\',\'' + anwserb + '\',\'' + anwserc + '\']}'
-        situations += '[' + tempstring1 + ',' + tempstring2 + '], '
+        situations += '[' + tempstring1 + ',' + tempstring2 + '], \n'
         m +=1
         n = 1
 
