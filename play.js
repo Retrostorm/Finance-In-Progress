@@ -28,7 +28,7 @@ const cards = [
 ];
 
 function userChoice(cardNum, choice) {
-    let card = cards[cardNum];
+    let card = cards[cardNum - 1];
 
     if (card[0][choice] == "balance") {
         balance += card[1][choice];
