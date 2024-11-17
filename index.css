@@ -247,21 +247,26 @@ main {
 
 @keyframes move-out {
   from {
-    transform: translateY(0%);
+    transform: translateX(0%);
+    opacity: 1;
+
   }
 
   to {
-    transform: translateY(-100%);
+    transform: translateX(-20%);
+    opacity: 0;
   }
 }
 
 @keyframes move-in {
   from {
-    transform: translateY(100%);
+    transform: translateX(20%);
+    opacity: 0;
   }
 
   to {
-    transform: translateY(0%);
+    transform: translateX(0%);
+    opacity: 1;
   }
 }
 

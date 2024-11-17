@@ -15,5 +15,5 @@ addEventListener("resize", () => {
 });
 
 function tr() {
-  
+
 }
