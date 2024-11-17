@@ -15,19 +15,21 @@
   <script src="play.js" defer> </script>
 </head>
 <body>
-  <div id="card-container">
-    <div class="card cc"> </div>
-    <div class="card"> </div>
-    <div class="card cc"> </div>  
-    <div class="card"> </div>
-    <div class="card"> </div>
-    <div class="card cc"> </div>
+  <main>
+    <div id="card-container">
+      <div class="card cc" onclick="nextCard()"> </div>
+      <div class="card"> <div class="card-top"> Your phone has been slowing down and the battery dies quickly. You found a new phone for $690. Do you buy a new phone? </div> <div class="card-bottom"> <button> Save the Money </button> <button> Buy a New Phone </button> </div> </div>
+      <div class="card cc" onclick="nextCard()"> </div>  
+      <div class="card"> <div class="card-top"> </div> <div class="card-bottom"> <button> </button> <button> </button> </div> </div>
+      <div class="card"> <div class="card-top"> </div> <div class="card-bottom"> <button> </button> <button> </button> </div> </div>
+      <div class="card cc" onclick="nextCard()"> </div>
 
-  </div>
-  <div id="context-box"> </div>
-  <div id="button-container">
-    <button>⛶</button>  
-    <button>i</button>  
-  </div>
+    </div>
+    <div id="context-box"> </div>
+    <div id="button-container">
+      <button onclick="openFullscreen(this)">⛶</button>  
+      <button>i</button>  
+    </div>
+  </main>
 </body>
 </html>

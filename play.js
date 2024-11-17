@@ -10,7 +10,7 @@ var randWT = (Math.floor(Math.random() * 3) + 1);
 document.querySelector(".card:nth-child(1)").innerHTML = `<img src="/docs/w2-${randWT}.svg" />`;
 
 const wtWages = [2468.54, 64543.84, 13458.21];
-var balance = wtWages[randWt - 1];
+var balance = wtWages[randWT - 1];
 
 // This variable represents costs accrued due to using a credit card, this is displayed at end
 var creditCardBill = 0;
@@ -33,6 +33,19 @@ function userChoice(cardNum, choice) {
     if (card[0][choice] == "balance") {
         balance += card[1][choice];
     } else if (card[0][choice] == "credit") {
-        credit += card[1][choice];
+        creditCardBill += card[1][choice];
     }
 }
+
+
+function openFullscreen(elem) {
+    if (document.fullscreenElement) {
+        document.exitFullscreen()
+    } else if (document.querySelector("body").requestFullscreen) {
+        document.querySelector("body").requestFullscreen();
+    } else if (document.querySelector("body").webkitRequestFullscreen) { /* Safari */
+        document.querySelector("body").webkitRequestFullscreen();
+    } else if (document.querySelector("body").msRequestFullscreen) { /* IE11 */
+        document.querySelector("body").msRequestFullscreen();
+    }
+  }
