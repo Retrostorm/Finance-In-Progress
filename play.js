@@ -12,6 +12,10 @@ document.querySelector(".card:nth-child(1)").innerHTML = `<img src="/docs/w2-${r
 const wtWages = [2468.54, 64543.84, 13458.21];
 var balance = wtWages[randWT - 1];
 
+document.querySelector(".card:nth-child(3)").innerHTML = `<img src="/docs/auto-invoice.svg" />`;
+document.querySelector(".card:nth-child(6)").innerHTML = `<img src="/docs/rec.svg" />`;
+
+
 // This variable represents costs accrued due to using a credit card, this is displayed at end
 var creditCardBill = 0;
 
@@ -33,7 +37,6 @@ function userChoice(cardNum, choice) {
 
     if (card[0][choice] == "balance") {
         balance += card[1][choice];
-        console.log(balance);
     } else if (card[0][choice] == "credit") {
         creditCardBill += card[1][choice];
     }
@@ -41,6 +44,16 @@ function userChoice(cardNum, choice) {
     nextCard();
 }
 
+var total = balance - creditCardBill 
+
+var splitTotal = String(total).split('')
+if(splitTotal.indexOf(".") != -1) {
+    splitTotal.splice(splitTotal.indexOf("."), 1)
+}
+for (let i = 0; i < 9-(splitTotal.length); i++) {
+    console.log("0")
+}
+console.log(splitTotal)
 
 function openFullscreen(elem) {
     if (document.fullscreenElement) {
@@ -53,3 +66,4 @@ function openFullscreen(elem) {
         document.querySelector("body").msRequestFullscreen();
     }
   }
+
