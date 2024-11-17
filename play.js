@@ -5,7 +5,7 @@ function nextCard() {
       document.querySelector(".card:nth-child(1)").remove();
       if (!(document.querySelector(".card"))) {
           var total = balance - creditCardBill;
-          total.toFixed(2);
+          total = total.toFixed(2);
           var splitTotal = String(total).split('');
           var periodIndex = splitTotal.indexOf(".");
           var splitLeft = splitTotal.slice(0, periodIndex);
