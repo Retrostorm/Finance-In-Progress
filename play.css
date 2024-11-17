@@ -26,6 +26,79 @@ body {
   display: flex; align-items: center; justify-content: center;
 }
 
+main {
+  width: 100%; height: 100%;
+  background-color: var(--dark);
+  display: flex; align-items: center; justify-content: center;
+}
+
+#info-box {
+    width: 27.5rem;
+    height: fit-content;
+    background-color: var(--dark);
+    position: absolute;
+    z-index: 60;
+    align-items: center;
+    left: 50%;top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 3rem;
+    border: none;
+    color: var(--one);
+    box-sizing: border-box; padding: 6rem 3rem;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+#info-x {
+  position: absolute;
+  top: 1rem; left: 1.5rem;
+  font-family: var(--font-primary);
+  background-color: transparent; border: none;
+  color: var(--one); font-size: 2rem;
+}
+
+#info-box::backdrop {
+  backdrop-filter: blur(.5rem);
+}
+
+section {
+  z-index: 99;
+  width: 100%; height: 100%;
+  background-color: var(--dark);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  position: absolute;
+  transition: .75s ease;
+}
+
+section img {
+  width: 40rem;
+}
+
+#start-button {
+  background-color: transparent;
+  color: var(--one);
+  font-family: var(--font-primary);
+  font-size: 1.25rem;
+  border: var(--one) 2px solid;
+  padding: 1rem 2rem; border-radius: 5rem;
+  transition: .25s ease; cursor: pointer;
+}
+
+#start-button:hover {
+  background-color: var(--one);
+  color: var(--dark);
+}
+
+#context-box {
+  height: 2rem; border-radius: 1rem;
+  background-color: var(--two);
+  position: absolute; bottom: 4rem;
+  display: flex; align-items: center; 
+  justify-content: center;
+  padding: 0 1rem;
+}
+
 #card-container {
   width: 50rem;
   height: 29rem;
@@ -40,6 +113,48 @@ body {
   position: absolute;
   transition: .5s ease;
   overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column;
+}
+.cc {
+  cursor: pointer;
+}
+
+
+.cc:nth-child(1):hover {
+  transform: scale(.95) translateY(-40%);
+}
+
+.card img {
+  min-width: calc(100% + 2px);
+}
+
+.card-top {
+  width: 70%; height: 80%;
+  display: flex; align-items: center;
+  font-size: 1.75rem;
+  text-align: center;
+}
+
+.card-bottom {
+  display: flex; align-items: center; justify-content: center;
+  width: 100%; height: 20%;
+}
+
+.card-bottom button {
+  background-color: transparent;
+  border: none;
+  height: calc(100% + 2px);
+  width: calc(50% + 2px);
+  font-size: 1.5rem; font-family: var(--font-primary);
+  border: 1px solid black;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: .15s ease;
+}
+
+.card-bottom button:hover {
+  font-weight: 600;
 }
 
 
@@ -81,4 +196,56 @@ body {
 #button-container button:hover {
   background-color: var(--one);
   color: var(--dark);
+}
+
+#ending-box {
+  z-index: 9;
+  width: 100%; height: 100%;
+  position: absolute;
+}
+
+#rolling-counter {
+  display: flex; gap: .25rem;
+  justify-content: center;
+  
+}
+
+#rolling-counter div {
+  display: flex; flex-direction: column;
+  height: 4rem; overflow: hidden; font-size: 4rem;
+  color: var(--one);
+  transition: .6s ease;
+}
+
+#rolling-counter div span {
+  height: 4rem;
+  font-size: 4rem;
+  flex-shrink: 0;
+  transition: .6s ease;
+}
+
+#blocker {
+  position: absolute;
+  z-index: 100;
+  background-color: black; color: white;
+  width: 100vw; height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; flex-direction: column; gap: 2rem;
+  display: none;
+}
+
+#confetti {
+  background-color: rgb(107, 199, 107);
+  padding: 2rem;
+  border: none; border-radius: 10rem;
+  font-size: 2rem; font-family: var(--font-primary);
+  cursor: pointer;
+}
+
+@media screen and (max-width: 900px) {
+  #blocker {
+    display: flex;
+  } body {
+    overflow: hidden;
+  }
 }
