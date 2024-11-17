@@ -23,7 +23,9 @@ function nextCard() {
               let last = splitTotal.pop();
               let comma = splitTotal.pop();
               splitTotal[splitTotal.length] = last;
+              console.log(splitTotal);
           }
+          console.log(splitTotal);
 
           for (let i = 0; i < 9-(splitTotal.length)+1; i++) {
               splitTotal.unshift(0);
@@ -38,11 +40,15 @@ function nextCard() {
               }
           }
           
+          console.log(isNegative)
+
           if (isNegative) {
+            console.log("AAAAAAAAAAAAAAAAAA")
             document.getElementById("ifNeg").innerHTML = " -$ ";
           }
 
           const copyList = [...splitTotal];
+          console.log(copyList);
           let divs = document.querySelectorAll("#rolling-counter div span");
           for (let i = 0; i < 100; i++) {
             let div = divs[i];
