@@ -2,7 +2,7 @@ function nextCard() {
     document.querySelector(".card:nth-child(1)").style.transform = "translateY(-200%)";
     document.querySelector(".card:nth-child(1)").style.opacity = ".8";
     setTimeout(() => {
-      document.querySelector(".card:nth-child(1)").remove()
+      document.querySelector(".card:nth-child(1)").remove();
     }, 500);
 }
 
@@ -44,16 +44,30 @@ function userChoice(cardNum, choice) {
     nextCard();
 }
 
-var total = balance - creditCardBill 
+var total = balance - creditCardBill;
+var splitTotal = String(total).split('');
+var periodIndex = splitTotal.indexOf(".");
+var splitLeft = splitTotal.slice(0, periodIndex);
+var splitRight;
+if(periodIndex != -1) {
+    splitRight = splitTotal.slice(periodIndex + 1);
+    splitRight = String(splitRight).split('');
+} else {
+    splitRight = [0, 0];
+}
 
-var splitTotal = String(total).split('')
-if(splitTotal.indexOf(".") != -1) {
-    splitTotal.splice(splitTotal.indexOf("."), 1)
+// Javascript sucks
+splitTotal = [...splitLeft, ...splitRight];
+if (splitTotal[splitTotal.length - 2] == ",") {
+    let last = splitTotal.pop();
+    splitTotal.pop();
+    splitTotal[splitTotal.length] = last;
 }
-for (let i = 0; i < 9-(splitTotal.length); i++) {
-    console.log("0")
-}
-console.log(splitTotal)
+
+// for (let i = 0; i < 9-(splitTotal.length); i++) {
+//     console.log("0")
+// }
+console.log(splitTotal);
 
 function openFullscreen(elem) {
     if (document.fullscreenElement) {
@@ -66,4 +80,3 @@ function openFullscreen(elem) {
         document.querySelector("body").msRequestFullscreen();
     }
   }
-
