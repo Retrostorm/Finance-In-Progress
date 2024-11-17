@@ -5,6 +5,7 @@ function nextCard() {
       document.querySelector(".card:nth-child(1)").remove();
       if (!(document.querySelector(".card"))) {
           var total = balance - creditCardBill;
+          total.toFixed(2);
           var splitTotal = String(total).split('');
           var periodIndex = splitTotal.indexOf(".");
           var splitLeft = splitTotal.slice(0, periodIndex);
@@ -22,9 +23,7 @@ function nextCard() {
               let last = splitTotal.pop();
               let comma = splitTotal.pop();
               splitTotal[splitTotal.length] = last;
-              console.log(splitTotal);
           }
-          console.log(splitTotal);
 
           for (let i = 0; i < 9-(splitTotal.length)+1; i++) {
               splitTotal.unshift(0);
@@ -39,19 +38,15 @@ function nextCard() {
               }
           }
           
-          console.log(isNegative)
-
           if (isNegative) {
-            console.log("AAAAAAAAAAAAAAAAAA")
             document.getElementById("ifNeg").innerHTML = " -$ ";
           }
-          
+
+          const copyList = [...splitTotal];
+          let divs = document.querySelectorAll("#rolling-counter div span");
           for (let i = 0; i < 100; i++) {
-            if (splitTotal[Math.floor(i/10)] != "-") {
-                document.querySelectorAll("#rolling-counter div span")[i].style.transform = `translateY(${-4*Number(splitTotal[(Math.floor(i/10))])}rem)`
-            } else {
-                console.log("negative");
-            }
+            let div = divs[i];
+            div.style.transform = `translateY(${-4*Number(splitTotal[(Math.floor(i/10))])}rem)`;
           }
       }
     }, 500);
