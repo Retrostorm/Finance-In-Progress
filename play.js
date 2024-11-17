@@ -53,12 +53,12 @@ var creditCardBill = 0;
 // Individual items are for choice 0 or choice 1
 // First array in each element holds what change takes place, second is value of that change
 const cards = [
-    [["nothing", "nothing"], [0, 0], "Context Here for W2"],
-    [["balance", "nothing"], [-690, 0], ""],
-    [["balance", "nothing"], [-2800, 0], ""],
-    [["balance", "balance"], [0, 500], ""], 
-    [["balance", "credit"], [-75, 75], ""],
-    [["balance", "nothing"], [-68, 0], ""],
+    [["nothing", "nothing"], [0, 0]],
+    [["balance", "nothing"], [-690, 0]],
+    [["balance", "nothing"], [-2800, 0]],
+    [["balance", "balance"], [0, 500]], 
+    [["balance", "credit"], [-75, 75]],
+    [["balance", "nothing"], [-68, 0]],
 ];
 
 function userChoice(cardNum, choice) {
