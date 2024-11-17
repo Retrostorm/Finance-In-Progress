@@ -26,6 +26,19 @@ body {
   display: flex; align-items: center; justify-content: center;
 }
 
+#context-box {
+  height: 2rem; border-radius: 1rem;
+  background-color: var(--two);
+  position: absolute; bottom: 4rem;
+  display: flex; align-items: center; 
+  justify-content: center;
+  padding: 0 1rem;
+}
+
+#submit-button {
+  
+}
+
 #card-container {
   width: 50rem;
   height: 29rem;
@@ -40,6 +53,16 @@ body {
   position: absolute;
   transition: .5s ease;
   overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+}
+
+.cc:nth-child(1):hover {
+  transform: scale(.95) translateY(-40%);
+}
+
+.card img {
+  min-width: calc(100% + 2px);
 }
 
 
