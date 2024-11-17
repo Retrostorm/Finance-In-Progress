@@ -85,4 +85,4 @@ function openFullscreen(elem) {
     } else if (document.querySelector("body").msRequestFullscreen) { /* IE11 */
         document.querySelector("body").msRequestFullscreen();
     }
-  }
+}
