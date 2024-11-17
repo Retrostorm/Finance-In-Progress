@@ -15,20 +15,49 @@
   <script src="play.js" defer> </script>
 </head>
 <body>
+  <section> 
+    <img src="/FinanceInPracticeLogo.svg" /> 
+    <button id="start-button" onclick="document.querySelector('section').style.transform = 'translateY(-100%)'; document.getElementById('info-box').showModal()"> Start </button>
+  </section>
   <main>
     <div id="card-container">
       <div class="card cc" onclick="nextCard()"> </div>
-      <div class="card"> <div class="card-top"> Your phone has been slowing down and the battery dies quickly. You found a new phone for $690. Do you buy a new phone? </div> <div class="card-bottom"> <button> Save the Money </button> <button> Buy a New Phone </button> </div> </div>
-      <div class="card cc" onclick="nextCard()"> </div>  
-      <div class="card"> <div class="card-top"> </div> <div class="card-bottom"> <button> </button> <button> </button> </div> </div>
-      <div class="card"> <div class="card-top"> </div> <div class="card-bottom"> <button> </button> <button> </button> </div> </div>
-      <div class="card cc" onclick="nextCard()"> </div>
-
+      <div class="card"> <div class="card-top"> Your phone has been slowing down and the battery dies quickly. You found a new phone for $690. Do you buy a new phone? </div> <div class="card-bottom"> <button onclick="userChoice(2, 0)"> Buy a New Phone </button> <button onclick="userChoice(2, 1)"> Save the Money </button> </div> </div>
+      <div class="card cc" onclick="userChoice(3, 0)"> </div>  
+      <div class="card"> <div class="card-top"> You get an unexpected $500 bonus at work. What do you do with the money? </div> <div class="card-bottom"> <button onclick="userChoice(3, 0)"> Spend the Money </button> <button onclick="userChoice(3, 1)"> Save the Money </button> </div> </div>
+      <div class="card"> <div class="card-top"> Your utility company added $75 to your bill. What do you do? </div> <div class="card-bottom"> <button onclick="userChoice(4, 0)"> Pay Out of Pocket </button> <button onclick="userChoice(4, 1)"> Pay It with a Credit Card </button> </div> </div>
+      <div class="card cc" onclick="userChoice(6, 0)"> </div>
+      
+      <div id="ending-box"> 
+        <div id="rolling-counter">
+          <div> <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></div>
+          <div> <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></div>
+          <div> , </div>
+          <div> <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></div>
+          <div> <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></div>
+          <div> <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></div>
+          <div> , </div>
+          <div> <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></div>
+          <div> <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></div>
+          <div> <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></div>
+          <div> . </div>
+          <div> <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></div>
+          <div> <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></div>
+        </div>
+      </div>
     </div>
+    <dialog id="info-box"> 
+      <button id="info-x" onclick="document.getElementById('info-box').close()"> ✗ </button>
+      It is your job to keep track of your budget using whatever tools you see fit.
+      <br><br>
+      Bonuses and refunds represent increases to income, while expenses represent decreases to income.
+      <br><br>
+      Know that the goal is not to succeed, but to fail and learn from your mistakes. Adjust your tools and methodology as needed. 
+    </dialog>
     <div id="context-box"> </div>
     <div id="button-container">
       <button onclick="openFullscreen(this)">⛶</button>  
-      <button>i</button>  
+      <button onclick="document.getElementById('info-box').showModal()">i</button>  
     </div>
   </main>
 </body>

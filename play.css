@@ -32,6 +32,64 @@ main {
   display: flex; align-items: center; justify-content: center;
 }
 
+#info-box {
+    width: 27.5rem;
+    height: fit-content;
+    background-color: var(--dark);
+    position: absolute;
+    z-index: 60;
+    align-items: center;
+    left: 50%;top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 3rem;
+    border: none;
+    color: var(--one);
+    box-sizing: border-box; padding: 6rem 3rem;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+#info-x {
+  position: absolute;
+  top: 1rem; left: 1.5rem;
+  font-family: var(--font-primary);
+  background-color: transparent; border: none;
+  color: var(--one); font-size: 2rem;
+}
+
+#info-box::backdrop {
+  backdrop-filter: blur(.5rem);
+}
+
+section {
+  z-index: 999;
+  width: 100%; height: 100%;
+  background-color: var(--dark);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  position: absolute;
+  transition: .75s ease;
+}
+
+section img {
+  width: 40rem;
+}
+
+#start-button {
+  background-color: transparent;
+  color: var(--one);
+  font-family: var(--font-primary);
+  font-size: 1.25rem;
+  border: var(--one) 2px solid;
+  padding: 1rem 2rem; border-radius: 5rem;
+  transition: .25s ease; cursor: pointer;
+}
+
+#start-button:hover {
+  background-color: var(--one);
+  color: var(--dark);
+}
+
 #context-box {
   height: 2rem; border-radius: 1rem;
   background-color: var(--two);
@@ -39,10 +97,6 @@ main {
   display: flex; align-items: center; 
   justify-content: center;
   padding: 0 1rem;
-}
-
-#submit-button {
-  
 }
 
 #card-container {
@@ -61,6 +115,8 @@ main {
   overflow: hidden;
   display: flex; align-items: center; justify-content: center;
   flex-direction: column;
+}
+.cc {
   cursor: pointer;
 }
 
@@ -90,9 +146,15 @@ main {
   border: none;
   height: calc(100% + 2px);
   width: calc(50% + 2px);
-  font-size: 1.5rem;
+  font-size: 1.5rem; font-family: var(--font-primary);
   border: 1px solid black;
   flex-shrink: 0;
+  cursor: pointer;
+  transition: .15s ease;
+}
+
+.card-bottom button:hover {
+  font-weight: 600;
 }
 
 
@@ -134,4 +196,27 @@ main {
 #button-container button:hover {
   background-color: var(--one);
   color: var(--dark);
+}
+
+#ending-box {
+  z-index: 9;
+  width: 100%; height: 100%;
+  position: absolute;
+}
+
+#rolling-counter {
+  display: flex; gap: .25rem;
+  justify-content: center;
+  
+}
+
+#rolling-counter div {
+  display: flex; flex-direction: column;
+  height: 4rem; overflow: hidden; font-size: 4rem;
+}
+
+#rolling-counter div span {
+  height: 4rem;
+  font-size: 4rem;
+  flex-shrink: 0;
 }
