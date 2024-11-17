@@ -5,6 +5,7 @@ function nextCard() {
       document.querySelector(".card:nth-child(1)").remove();
       if (!(document.querySelector(".card"))) {
           var total = balance - creditCardBill;
+          total.toFixed(2);
           var splitTotal = String(total).split('');
           var periodIndex = splitTotal.indexOf(".");
           var splitLeft = splitTotal.slice(0, periodIndex);
@@ -16,22 +17,37 @@ function nextCard() {
               splitRight = [0, 0];
           }
   
-          // Javascript sucks
+          // Concatenate the left and right arrays, javascript has weird behaviour so we use pop
           splitTotal = [...splitLeft, ...splitRight];
           if (splitTotal[splitTotal.length - 2] == ",") {
               let last = splitTotal.pop();
-              splitTotal.pop();
+              let comma = splitTotal.pop();
               splitTotal[splitTotal.length] = last;
           }
-  
+
           for (let i = 0; i < 9-(splitTotal.length)+1; i++) {
-              splitTotal.unshift("0")
+              splitTotal.unshift(0);
           }
-  
+
+          var isNegative = false;
+          for (let i = 0; i < (splitTotal.length - 1); i++) {
+              if (splitTotal[i] == "-") {
+                isNegative = true;
+                splitTotal[i] = 0; 
+                break;
+              }
+          }
+          
+          if (isNegative) {
+            document.getElementById("ifNeg").innerHTML = " -$ ";
+          }
+
+          const copyList = [...splitTotal];
+          let divs = document.querySelectorAll("#rolling-counter div span");
           for (let i = 0; i < 100; i++) {
-                document.querySelectorAll("#rolling-counter div span")[i].style.transform = `translateY(${-4*Number(splitTotal[(Math.floor(i/10))])}rem)`
+            let div = divs[i];
+            div.style.transform = `translateY(${-4*Number(splitTotal[(Math.floor(i/10))])}rem)`;
           }
-  
       }
     }, 500);
 }
@@ -85,4 +101,4 @@ function openFullscreen(elem) {
     } else if (document.querySelector("body").msRequestFullscreen) { /* IE11 */
         document.querySelector("body").msRequestFullscreen();
     }
-}
+  }
